@@ -14,8 +14,9 @@ if (screen.width < 1193) {
     });
   });
 }
-
-
+$(".navbar-toggler").click(function() {
+  $("#toggle").toggleClass("on");
+});
 
 
 

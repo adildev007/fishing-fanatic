@@ -21,12 +21,58 @@ body {
   margin: 0 auto;
   padding: 0;
 }
+.title {
+  max-width: fit-content;
+  margin: 0 auto 75px;
+  text-align: center;
+}
+
+.title h2 {
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+.title h2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 53px;
+  height: 24px;
+  background-repeat: no-repeat;
+  left: -100px;
+  background-image: url(../images/heading-left.png);
+  background-size: cover;
+}
+.title h2::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 53px;
+  height: 24px;
+  background-repeat: no-repeat;
+  right: -100px;
+  background-image: url(../images/heading-right.png);
+  background-size: cover;
+}
 /* header start  */
 header .call {
   display: none;
 }
+header .mobile-nav {
+  display: none;
+}
+
 .logo img {
   width: 100%;
+  height: 100%;
 }
 
 header {
@@ -40,14 +86,7 @@ header .logo {
   transform: translate(-50%);
   z-index: 100;
 }
-/* .header-bg{
-  background-image: url(../images/header-top.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 324px;
-  position: relative;
-  width: 100%;
-} */
+
 header .navbar {
   background-image: url(../images/header-top.png);
   background-position: center;
@@ -60,15 +99,14 @@ header .navbar {
 
 header .navbar-expand-lg .navbar-collapse {
   justify-content: center;
-  margin-top: 115px;
-  transform: translateX(-17px);
+  max-width: 1482px;
+  margin: 109px auto 0 auto;
+  transform: translate(-1%, 0px);
 }
 header .navbar-expand-lg .navbar-nav {
   flex-direction: row;
+  width: 100%;
 }
-/* header .navbar-nav #margin-right {
-  margin-right: 333px;
-} */
 header .navbar-expand-lg .navbar-nav .nav-link {
   font-weight: 500;
   color: #fff;
@@ -83,11 +121,21 @@ header .navbar-expand-lg .navbar-nav .nav-link {
   border-radius: 0;
 }
 
-header .navbar-expand-lg .navbar-nav .nav-link:hover{
+header .navbar-expand-lg .navbar-nav .nav-link:hover {
   color: #d9ce00;
 }
 header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
-  margin-right: 335px;
+  margin-right: auto;
+  border-radius: 0 20px 0 0;
+}
+header .navbar-expand-lg .navbar-nav .nav-link:first-child {
+  border-radius: 0 0 0 20px;
+}
+header .navbar-expand-lg .navbar-nav .nav-link:last-child {
+  border-radius: 0 20px 0 0;
+}
+header .navbar-expand-lg .navbar-nav .nav-link:nth-child(5) {
+  border-radius: 0 0 0 20px;
 }
 /* banner section start  */
 .banner {
@@ -102,24 +150,11 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   background-image: url(../images/outer-fish.png);
   background-repeat: no-repeat;
   padding-top: 100px;
-  padding-bottom: 70px;
+  padding-bottom: 0px;
   background-position: top;
+  background-size: cover;
 }
-.outer-bank .title {
-  max-width: fit-content;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto 75px;
-}
-.outer-bank .title h2 {
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #000000;
-  margin: 0 22px;
-}
+
 .outer-bank .content {
   max-width: 1275px;
   margin: 0 auto 100px;
@@ -166,24 +201,9 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   font-weight: bold;
   text-transform: uppercase;
 }
-.title img {
-  max-width: 50px;
-}
-/* photo-gallery :start  */
-.photo-gallery .title {
-  max-width: fit-content;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto 55px;
-}
-.photo-gallery .title h2 {
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #000000;
-  margin: 0 22px;
+
+.photo-gallery {
+  padding-top: 55px;
 }
 .photo-gallery .gallery {
   display: grid;
@@ -299,23 +319,9 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   z-index: 10;
   position: relative;
   padding-bottom: 130px;
+  background-size: cover;
 }
 
-.our-tips .title {
-  max-width: fit-content;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto 80px;
-}
-.our-tips .title h2 {
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #000000;
-  margin: 0 22px;
-}
 .our-tips .row .card {
   background-color: transparent;
   border: unset;
@@ -340,27 +346,27 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   max-width: 365px;
   margin: 0 auto 40px;
   text-align: center;
+  min-height: 162px;
 }
-.our-tips .row .card .book-div a {
+.our-tips .row .card a {
+  outline: #c0661d solid 1px;
+  border: 1px solid #efdcaf;
+  padding: 6px 12px;
+}
+.our-tips .card span {
+  background-color: #c0661d;
   font-size: 14px;
   font-weight: 400;
   line-height: 1;
   text-transform: capitalize;
   color: #fff;
-  background-color: #c0661d;
   width: fit-content;
-  padding: 12px 15px;
   text-align: center;
   transition: 0.3s all ease-in-out;
-} 
-.our-tips .row .card .book-div a:hover{
+}
+.our-tips .row .card a:hover {
   background-color: #fff;
   color: #000;
-}
-.our-tips .row .card .book-div {
-  border: 2px solid #c0661d;
-  padding: 2px;
-  background-color: transparent;
 }
 
 .our-tips .row {
@@ -388,6 +394,7 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   padding-top: 100px;
   padding-bottom: 50px;
   overflow: hidden;
+  background-size: cover;
 }
 .kids-fishing .row {
   background-image: url(../images/group.png);
@@ -446,24 +453,7 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   padding-top: 50px;
   padding-bottom: 100px;
 }
-.captains-journal .title {
-  max-width: fit-content;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto 80px;
-}
-.captains-journal .title h2 {
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #000000;
-  margin: 0 22px;
-}
-/* .captains-journal .row .card .card-top {
-  max-width: 395px;
-} */
+
 .captains-journal .row .card {
   align-items: center;
   border: unset;
@@ -478,9 +468,11 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 30px;
+  width: 100%;
 }
 .captains-journal .row .card .card-top {
   margin-bottom: 30px;
+  width: 100%;
 }
 .captains-journal .row .card .leave-coment a {
   font-size: 12px;
@@ -494,18 +486,19 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   justify-content: space-between;
   margin-bottom: 30px;
   list-style: none;
-  max-width: 350px;
-  padding: 0;
+  width: 100%;
+  padding: 0 20px;
   gap: 7px;
 }
 .captains-journal .row .card .leave-coment i {
   font-size: 12px;
+  color: #bfbfbf;
 }
 .captains-journal .row .card .leave-coment li {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
 }
 .captains-journal .row .card .leave-coment a span {
   color: #2787de;
@@ -519,7 +512,6 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   font-weight: 300;
   text-align: center;
   margin-bottom: 55px;
-  max-width: 400px;
 }
 .captains-journal .row .card .lower-card .btn a {
   font-size: 12px;
@@ -529,10 +521,9 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   background-color: #004f91;
   transition: 0.2s all ease-in-out;
 }
-.captains-journal .row .card .lower-card .btn a:hover{
+.captains-journal .row .card .lower-card .btn a:hover {
   background-color: #fff;
-  color: #000;
-  font-weight: bold;
+  color: black;
 }
 .captains-journal .row .card .lower-card .btn {
   padding: 2px;
@@ -557,28 +548,14 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   padding-bottom: 80px;
 }
 
-.testimonials .title {
-  max-width: fit-content;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto 35px;
-}
-.testimonials .title h2 {
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #000000;
-  margin: 0 22px;
-}
 .testimonials .title-para {
   font-size: 18px;
   font-weight: 300;
   text-align: center;
   line-height: 1;
   max-width: 487px;
-  margin: 0 auto 75px;
+  margin: 34px auto 0 auto;
+  text-align: center;
 }
 .testimonials .row .card .card-top {
   max-width: 110px;
@@ -595,7 +572,7 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  left: 125px;
+  right: calc(100% - 240px);
 }
 .testimonials .row .card .card-top::after {
   content: "";
@@ -604,7 +581,7 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  right: 125px;
+  left: calc(100% - 240px);
 }
 .testimonials .row .card .card-top img {
   width: 100%;
@@ -615,6 +592,7 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   align-items: center;
   border: unset;
   justify-content: center;
+  width: 100%;
 }
 .testimonials .row .card p {
   text-align: center;
@@ -650,14 +628,22 @@ header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
   margin: 0 auto;
 }
 .testimonials .icons .image {
-  max-width: 200px;
+  max-width: 33%;
+  width: 100%;
+  border-right: 2px solid #c1d7c7;
+  padding: 0 0px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.testimonials .icons .image:nth-child(2) {
-  border-left: 1px solid #5e6973;
-  border-right: 1px solid #5e6973;
-  padding: 0 85px;
-  max-width: 340px;
-  max-height: 200px;
+.testimonials .icons .image img {
+  max-width: auto;
+  width: auto;
+  /* height: 80px; */
+  /* min-height: 87px; */
+}
+.testimonials .icons .image:last-child {
+  border-right: none;
 }
 .testimonials .icons img {
   width: 100%;
@@ -677,16 +663,18 @@ footer .icons {
   align-items: center;
   justify-content: space-between;
   max-width: 110px;
-  margin-left: 80px;
+  margin-left: 22px;
 }
 footer .row .heading {
+  margin-bottom: 30px;
+}
+footer .heading h3 {
   font-family: "Lato";
   font-size: 14px;
   font-weight: bold;
   color: #fff;
   line-height: 1;
   text-transform: uppercase;
-  margin-bottom: 30px;
 }
 footer .scnd-col .flex {
   display: flex;
@@ -810,7 +798,7 @@ footer .content .right {
   padding: 0;
   margin-bottom: 30px;
 }
-.footer-bottom ul a{
+.footer-bottom ul a {
   font-family: "Raleway";
   font-weight: 600;
   line-height: 1;
@@ -818,7 +806,7 @@ footer .content .right {
   text-transform: uppercase;
   transition: 0.2s all ease-in-out;
 }
-.footer-bottom ul a:hover{
+.footer-bottom ul a:hover {
   color: #d9ce00;
 }
 .footer-bottom p {
@@ -831,12 +819,13 @@ footer .content .right {
     padding: 25px 24px;
   }
   header .navbar-expand-lg .navbar-collapse {
-    margin-top: 103px;
-    transform: translateX(-5px);
+    margin-top: 99px;
+    max-width: 1329px;
+    transform: translate(-6px, 0px);
   }
   .footer-top {
     width: 100%;
-    padding: 0 40px;
+    padding: 0;
   }
 }
 @media (max-width: 1357px) {
@@ -853,8 +842,9 @@ footer .content .right {
     padding-right: 0;
   } */
   header .navbar-expand-lg .navbar-collapse {
-    margin-top: 103px;
-    transform: translateX(6px);
+    margin-top: 97px;
+    max-width: 1156px;
+    transform: translate(7px, 0px);
   }
   .outer-bank .title h2 {
     font-size: 40px;
@@ -888,12 +878,42 @@ footer .content .right {
     padding-bottom: 200px;
   }
   .kids-fishing .row {
-    margin-top: -194px;
+    margin-top: -96px;
   }
+
+  .kids-fishing .row .card .kids {
+    font-size: 132px;
+  }
+  .kids-fishing .row .card h3 {
+    font-family: "Just Another Hand";
+    font-size: 60px;
+  }
+  .kids-fishing .row .card p {
+    font-size: 27px;
+    line-height: 1.3;
+  }
+  .kids-fishing .row .card {
+    padding: 40px 47px;
+    border: unset;
 }
-@media (max-width: 1193px) {
+}
+@media (max-width: 1200px) {
+  .captains-journal .row .card {
+    padding: 0 200px;
+  }
+  footer .icons {
+    margin-left: 0;
+  }
+  .our-tips .row .card p {
+    min-height: 216px;
+  }
   .testimonials .captains-journal-slider {
     margin: 0;
+  }
+  header .navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
   }
   .slick-next:before {
     content: "→";
@@ -918,15 +938,14 @@ footer .content .right {
     z-index: 999;
   }
   header .navbar-expand-lg .navbar-nav .nav-link {
-    padding: 20px 3px;
+    padding: 20px 2px;
     font-size: 14px;
   }
-  header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
-    margin-right: 333px;
-  }
+
   header .navbar-expand-lg .navbar-collapse {
-    margin-top: 96px;
-    transform: translateX(11px);
+    margin-top: 89px;
+    max-width: 941px;
+    transform: translate(13px, 0px);
   }
   .outer-bank .book-online {
     width: 100%;
@@ -935,7 +954,7 @@ footer .content .right {
   }
   .outer-bank {
     padding-top: 70px;
-    padding-bottom: 70px;
+    padding-bottom: 0;
   }
   .outer-bank .title {
     margin: 0 auto 75px;
@@ -949,7 +968,7 @@ footer .content .right {
     font-size: 35px;
   }
   .outer-bank .title h2 {
-    font-size: 36px;
+    font-size: 34px;
   }
   .photo-gallery .title h2 {
     font-size: 36px;
@@ -1016,31 +1035,88 @@ footer .content .right {
     margin: 0 auto 100px;
   }
   .testimonials .row .card {
-    background-color: transparent;
-    align-items: center;
-    border: unset;
-    justify-content: center;
-    max-width: 520px;
-    margin: 0 auto;
+    padding: 0 170px;
   }
   .testimonials .row {
     border-bottom: unset;
   }
 }
 @media (max-width: 991px) {
-  .mobile-nav {
+  header .navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none;
+  }
+  header #toggle {
+    width: 40px;
+    height: 30px;
+    margin: 10px auto;
+  }
+
+  header #toggle div {
+    width: 40px;
+    height: 4px;
+    background: #fef229;
+    margin: 5px auto;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+    border-radius: 10px;
+  }
+
+  header #toggle.on .one {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  header #toggle.on .two {
+    opacity: 0;
+  }
+
+  header #toggle.on .three {
+    transform: rotate(-45deg) translate(7px, -8px);
+  }
+
+  header #menu {
+    color: white;
+    border: 1px solid white;
+    width: 150px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 3px;
+    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans",
+      "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+    line-height: 100px;
+    text-align: center;
+    margin: auto;
+    display: none;
+  }
+
+  .testimonials .row .card {
+    padding: 0 100px;
+  }
+  .captains-journal .row .card {
+    padding: 0 100px;
+  }
+  header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
+    margin-right: 0;
+    border-radius: 0 0 0 0;
+  }
+  header .navbar-expand-lg .navbar-nav .nav-link:nth-child(5) {
+    margin-right: 0;
+    border-radius: 0 0 0 0;
+  }
+  header .navbar-expand-lg .navbar-nav .nav-link:first-child {
+    border-radius: 20px 20px 0 0;
+  }
+  header .navbar-expand-lg .navbar-nav .nav-link:last-child {
+    border-radius: 0 0 20px 20px;
+  }
+  header .mobile-nav {
     display: flex;
     align-items: center;
-    max-width: 430px;
+    max-width: 415px;
     justify-content: space-between;
     width: 100%;
     margin: 80px auto 0 auto;
-  }
-  .mobile-nav {
-    display: flex;
-    align-items: center;
-    max-width: 416px;
-    justify-content: space-between;
   }
   header .navbar-toggler {
     width: 96px;
@@ -1049,12 +1125,10 @@ footer .content .right {
     align-items: center;
     justify-content: center;
     background-image: url(../images/Menu\ Bar.png);
-    padding: 19px 0;
+    padding: 10px 0;
     border-radius: 0px 10px 0px 10px;
   }
-  .navbar-toggler-icon {
-    width: 0;
-  }
+
   header .call {
     width: 96px;
     /* display: block; */
@@ -1074,7 +1148,7 @@ footer .content .right {
     min-height: 230px;
   }
   .logo a {
-    max-width: 225px;
+    max-width: 310px;
     height: 225px;
   }
 
@@ -1086,7 +1160,7 @@ footer .content .right {
     position: absolute;
     width: 100%;
     left: 0;
-    top: 196px;
+    top: 220px;
     transform: translateX(0px);
   }
   header .navbar-expand-lg .navbar-nav .nav-link {
@@ -1094,9 +1168,7 @@ footer .content .right {
     font-size: 22px;
     text-align: center;
   }
-  header .navbar-expand-lg .navbar-nav .nav-link:nth-child(4) {
-    margin-right: 0;
-  }
+
   .footer-bottom ul {
     max-width: 750px;
   }
@@ -1105,7 +1177,6 @@ footer .content .right {
     align-items: center;
     border: unset;
     justify-content: center;
-    max-width: 400px;
     margin: 0 auto;
   }
   .outer-bank .content {
@@ -1117,7 +1188,7 @@ footer .content .right {
     background-image: url(../images/outer-fish.png);
     background-repeat: no-repeat;
     padding-top: 55px;
-    padding-bottom: 55px;
+    padding-bottom: 0;
     background-position: unset;
   }
   .outer-bank .title {
@@ -1162,6 +1233,7 @@ footer .content .right {
   }
   .kids-fishing {
     margin-top: -72px;
+
   }
 
   .kids-fishing .row {
@@ -1174,7 +1246,7 @@ footer .content .right {
     margin: 0 auto 16px;
     line-height: 1.3;
     font-size: 16px;
-    background-color: #00000029;
+    
   }
   .kids-fishing .row .card {
     background-color: transparent;
@@ -1185,7 +1257,7 @@ footer .content .right {
   }
   .kids-fishing .row .card h3 {
     font-size: 36px;
-    background-color: #00000029;
+   
   }
   .kids-fishing .row .card .kids {
     font-size: 90px;
@@ -1193,26 +1265,25 @@ footer .content .right {
   .kids-fishing .row .card .obx {
     font-size: 24px;
     width: 100%;
-    background-color: #00000029;
+
   }
   .testimonials .row .card {
-    max-width: 370px;
     margin: 0 auto;
+  
   }
 
   .testimonials .title h2 {
-    font-size: 48px;
+    font-size: 40px;
   }
   .testimonials .title-para {
     max-width: 450px;
-    margin: 0 auto 75px;
   }
   .slick-next {
-    right: 10%;
+    right: 3%;
     z-index: 999;
   }
   .slick-prev {
-    left: 10%;
+    left: 3%;
     z-index: 999;
   }
 
@@ -1242,16 +1313,22 @@ footer .content .right {
   .footer-bottom {
     width: 100%;
     text-align: center;
-    padding: 0 30px;
+    padding: 0;
   }
   .testimonials .icons {
     width: 100%;
     margin: 0 auto;
     padding: 0 40px;
-  }
-  .testimonials .icons .image:nth-child(2) {
-    border: unset;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 60px;
+}
+.testimonials .icons .image {
+  max-width: 50%;
+  border: unset;
+}
   .our-tips {
     padding-top: 230px;
     margin-top: -150px;
@@ -1263,7 +1340,7 @@ footer .content .right {
   .banner {
     background-image: url(../images/BANNER-m-.png);
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 60vh;
     background-position: center;
   }
   .photo-gallery .gallery {
@@ -1337,8 +1414,12 @@ footer .content .right {
   }
 }
 @media (max-width: 767px) {
-  .outer-bank .title h2 {
-    font-size: 30px;
+ 
+  .testimonials .row .card {
+    padding: 0 60px;
+  }
+  .captains-journal .row .card {
+    padding: 0 60px;
   }
   .outer-bank {
     padding-top: 45px;
@@ -1365,24 +1446,19 @@ footer .content .right {
   .photo-gallery {
     padding: 40px 0 0 0;
   }
-  .photo-gallery .title h2 {
-    font-size: 30px;
-  }
-  .our-tips .title h2 {
-    font-size: 30px;
-  }
+
   .our-tips .row .card h3 {
     font-size: 19px;
     max-width: 100%;
     margin: 0 auto 25px;
   }
-  .our-tips .title {
+  /* .our-tips .title {
     max-width: fit-content;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto 60px;
-  }
+  } */
   .kids-fishing .row {
     background-image: url(../images/kids-m.png);
     background-size: cover;
@@ -1392,6 +1468,10 @@ footer .content .right {
   .kids-fishing {
     margin-top: -67px;
     padding-bottom: 23px;
+   
+  }
+  .kids-fishing .row .card {
+    background-color: rgba(0, 0, 0, 0.1);
   }
   .our-tips .row .card p {
     font-size: 16px;
@@ -1399,9 +1479,7 @@ footer .content .right {
   .our-tips {
     padding-bottom: 170px;
   }
-  .captains-journal .title h2 {
-    font-size: 30px;
-  }
+
   .captains-journal {
     background-color: #fff;
     padding-top: 30px;
@@ -1422,7 +1500,7 @@ footer .content .right {
     font-size: 25px;
   }
   .testimonials .title h2 {
-    font-size: 33px;
+    font-size: 36px;
   }
   .footer-bottom ul {
     max-width: 100%;
@@ -1432,7 +1510,12 @@ footer .content .right {
   }
   .testimonials .title-para {
     max-width: 450px;
-    margin: 0 auto 60px;
+  }
+  .title h2::after {
+    right: -75px;
+  }
+  .title h2::before {
+    left: -75px;
   }
 }
 @media (max-width: 575px) {
@@ -1441,15 +1524,40 @@ footer .content .right {
     margin: 0 auto;
     padding: 0px 30px;
 } */
-  .outer-bank .title h2 {
-    font-size: 20px;
-    margin: 0 6px;
+.kids-fishing .row {
+  margin-top: -120px;
+}
+.kids-fishing .row {
+  background-image: url(../images/kids-m.png);
+  background-size: cover;
+  background-position: 26%;
+}
+  .testimonials .row .card .card-top {
+    max-width: 100px;
+    height: 100px;
+    padding: 5px;
+    margin-bottom: 28px;
+    position: relative;
   }
-  .title img {
-    max-width: 30px;
+  .testimonials .row .card .card-top::after {
+    transform: translate(0, -50%);
+    left: calc(100% - 208px);
+  }
+  .testimonials .row .card .card-top::before {
+    transform: translate(0, -50%);
+    right: calc(100% - 208px);
+  }
+  .testimonials .row .card {
+    padding: 0;
+  }
+  .captains-journal .row .card .leave-coment {
+    padding: 0;
+  }
+  .captains-journal .row .card {
+    padding: 0;
   }
   .outer-bank {
-    padding-top: 20px;
+    padding-top: 35px;
     padding-bottom: 0px;
   }
   .outer-bank .title {
@@ -1493,14 +1601,7 @@ footer .content .right {
   .outer-bank .book-online a {
     font-size: 17px;
   }
-  .photo-gallery .title h2 {
-    font-size: 20px;
-    margin: 0 10px;
-  }
-  .our-tips .title h2 {
-    font-size: 20px;
-    margin: 0 10px;
-  }
+
   .our-tips .title {
     margin: 0 auto 40px;
   }
@@ -1518,10 +1619,10 @@ footer .content .right {
   .kids-fishing .row .card {
     margin: 0 auto;
     padding: 20px 0px 0 0;
-
-  }
+    background-color: rgb(0 0 0 / 15%);
+}
   .kids-fishing .row {
-    padding: 25px 0;
+    padding: 100px 0 75px 0 ;
   }
   .kids-fishing {
     margin-top: -42px;
@@ -1532,10 +1633,7 @@ footer .content .right {
     background-size: cover;
     background-position: 44%;
   }
-  .captains-journal .title h2 {
-    font-size: 20px;
-    margin: 0 10px;
-  }
+
   .captains-journal .title {
     margin: 0 auto 31px;
   }
@@ -1589,11 +1687,9 @@ footer .content .right {
   }
   .testimonials .title-para {
     width: 100%;
-    margin: 0 auto 45px;
   }
   .testimonials .title h2 {
-    font-size: 30px;
-    margin: 0 8px;
+    font-size: 22px;
   }
   .testimonials .row .card {
     width: 100%;
@@ -1606,9 +1702,9 @@ footer .content .right {
     margin-left: 0;
   }
   .logo a {
-    max-width: 110px;
+    max-width: 153px;
     height: 110px;
-  }
+}
 
   header .navbar {
     background-position: center top;
@@ -1624,7 +1720,7 @@ footer .content .right {
   }
   header .navbar-toggler {
     width: 60px;
-    padding: 12px 0;
+    padding: 0px 0;
     border-radius: 0px 8px 0px 8px;
     background-size: cover;
   }
@@ -1639,8 +1735,8 @@ footer .content .right {
   header .navbar-toggler img {
     width: 35px;
   }
-  
-  .mobile-nav {
+
+  header .mobile-nav {
     max-width: 234px;
     margin: -24px auto 0 auto;
   }
@@ -1651,11 +1747,43 @@ footer .content .right {
     left: 0;
     top: 116px;
     transform: translateX(0px);
-}
-.captains-journal .row .card .leave-coment li {
-  gap: 2px;
-}
-.captains-journal .row .card .leave-coment {
-  gap: 6px;
-}
+  }
+  .captains-journal .row .card .leave-coment li {
+    gap: 2px;
+  }
+  .captains-journal .row .card .leave-coment {
+    gap: 4px;
+  }
+  .outer-bank .title h2 {
+    font-size: 22px;
+  }
+  .photo-gallery .title h2 {
+    font-size: 22px;
+  }
+  .our-tips .title h2 {
+    font-size: 22px;
+  }
+  .captains-journal .title h2 {
+    font-size: 22px;
+  }
+  .title h2::after {
+    transform: translateY(-50%);
+    width: 34px;
+    height: 15px;
+    right: -51px;
+  }
+  .title h2::before {
+    width: 34px;
+    height: 15px;
+    left: -51px;
+  }
+  header #toggle div {
+    width: 30px;
+    height: 4px;
+    background: #fef229;
+    margin: 5px auto;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+    border-radius: 10px;
+  }
 }
